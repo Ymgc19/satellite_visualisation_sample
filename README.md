@@ -8,7 +8,12 @@ var region = ee.Geometry.Rectangle([105.29687496308843,10.480909588897706, 106.1
 // Sentinel-1のデータをフィルター
 var Sentinel1 = ee.ImageCollection('COPERNICUS/S1_GRD') // プロダクトを指定
                   .filterBounds(region) // 地域指定
-                  .filter(ee.Filter.date('2024-04-10', '2024-04-30')) // 取得する画像の期間
+
+// ここをそれぞれ回してください
+                  .filter(ee.Filter.date('2024-02-15', '2024-02-17')) // 取得する画像の期間
+//                  .filter(ee.Filter.date('2024-04-27', '2024-04-30')) // 取得する画像の期間
+//                  .filter(ee.Filter.date('2024-12-11', '2024-12-13')) // 取得する画像の期間
+
                   .filter(ee.Filter.listContains('transmitterReceiverPolarisation', 'VH')) //偏波VHを含むもの
                   .filter(ee.Filter.eq('orbitProperties_pass', 'DESCENDING')) // 下降軌道
                   .filter(ee.Filter.eq('platform_number', 'A')) // ひとつの衛星のデータに限定
