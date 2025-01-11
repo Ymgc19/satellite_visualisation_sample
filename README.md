@@ -43,8 +43,6 @@ for (var i = 0; i < Sentinel1.size().getInfo(); i++) {
   });
 }
 
-
-
 // 可視化する
 Map.centerObject(region);
 
@@ -53,3 +51,8 @@ var firstImage = ee.Image(imageList.get(0)); // リスト内の最初の画像
 Map.addLayer(firstImage, {min: -30, max: 0, palette: ['blue', 'yellow', 'red']}, 'polarisation VH');
 
 ```
+
+ここでGoogle Driveにデータをダウンロードできます．
+sample_yamaguchi.ipynbをGoogle Colabで起動し，走らせると便利です．
+
+
